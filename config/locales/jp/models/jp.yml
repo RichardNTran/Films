@@ -1,0 +1,6 @@
+jp:
+  activerecord:
+    models:
+      user:
+        name: ユーザー名
+        email: Eメール
