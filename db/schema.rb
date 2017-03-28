@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170327070142) do
+ActiveRecord::Schema.define(version: 20170328075148) do
+
+  create_table "films", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "url"
+    t.integer  "category"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_films_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string   "name"
@@ -22,4 +33,5 @@ ActiveRecord::Schema.define(version: 20170327070142) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "films", "users"
 end

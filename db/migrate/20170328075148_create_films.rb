@@ -5,7 +5,7 @@ class CreateFilms < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :url
       t.integer :category
-
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
